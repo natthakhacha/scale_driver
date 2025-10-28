@@ -1,0 +1,28 @@
+{
+  "parsers": [
+    {
+      "name": "Generic CSV",
+      "pattern": "(?<stable>[A-Z]{2}),(?<mode>[A-Z]{2}),(?<weight>[+-]?\\d+\\.?\\d*),(?<unit>\\w+)",
+      "weightGroup": "weight",
+      "unitGroup": "unit",
+      "stabilityGroup": "stable",
+      "description": "Generic CSV format with stability, mode, weight, and unit"
+    },
+    {
+      "name": "Simple Weight",
+      "pattern": "(?<weight>\\d+\\.?\\d*)\\s*(?<unit>kg|g|lb|oz)",
+      "weightGroup": "weight",
+      "unitGroup": "unit",
+      "stabilityGroup": null,
+      "description": "Simple weight format: value followed by unit"
+    },
+    {
+      "name": "Toledo Format",
+      "pattern": "(?<stable>ST|US)\\s+(?<weight>[+-]?\\d+\\.?\\d*)\\s*(?<unit>\\w+)",
+      "weightGroup": "weight",
+      "unitGroup": "unit",
+      "stabilityGroup": "stable",
+      "description": "Toledo scale format"
+    }
+  ]
+}
