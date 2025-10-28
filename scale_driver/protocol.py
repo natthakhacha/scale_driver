@@ -33,7 +33,7 @@ class GenericProtocol(ProtocolHandler):
             
             # Try to extract weight and unit
             # Pattern matches: numbers (with optional decimal and sign) followed by optional unit
-            pattern = r'([+-]?\d+\.?\d*)\s*([a-zA-Z]*)'
+            pattern = r'([+-]?\d+(?:\.\d+)?)\s*([a-zA-Z]*)'
             match = re.search(pattern, text)
             
             if match:

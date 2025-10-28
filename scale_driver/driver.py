@@ -82,6 +82,9 @@ class ScaleDriver:
         if not self.is_connected():
             raise ConnectionError("Not connected to scale")
         
+        if self.connection is None:
+            raise ConnectionError("Connection object is not initialized")
+        
         try:
             if timeout:
                 original_timeout = self.connection.timeout

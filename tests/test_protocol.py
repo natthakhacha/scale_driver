@@ -41,6 +41,16 @@ class TestGenericProtocol:
         assert reading.weight == -5.2
         assert reading.unit == "lb"
     
+    def test_parse_integer_weight(self):
+        """Test parsing integer weight (no decimal point)."""
+        protocol = GenericProtocol()
+        data = b"25 kg\r\n"
+        reading = protocol.parse_reading(data)
+        
+        assert reading is not None
+        assert reading.weight == 25.0
+        assert reading.unit == "kg"
+    
     def test_parse_unstable_reading(self):
         """Test parsing unstable reading."""
         protocol = GenericProtocol()
